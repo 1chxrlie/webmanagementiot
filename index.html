@@ -1,0 +1,230 @@
+<html>
+	<head>
+		<link rel="icon" href="C:\Users\Grisha\OneDrive\Рабочий стол\arduino cursach\web\icon.ico" type="image/x-icon"/>
+		<title>Web-интерфейс для датчиков IoT</title>
+		<h1>Web-интерфейс для датчиков IoT</h1>
+		<style>
+			h1{
+				text-align: center;
+				font-family: segoe script;
+				margin-top: 20px;
+				margin-bottom: 40px;
+			}
+			body{
+				background: linear-gradient(to bottom, #B92BFF, #004BBA);
+				background-image: url(dom.jpg);
+				background-size: cover;
+				text-align: left;
+				height: 100%;
+				margin: 0;
+			}
+			input[id="washing_machine_button"]{
+				margin-top: 50px;
+			}
+			input[id="microwave_button"]{
+				margin-top: 25px;
+			}
+			input[id="fridge_button"]{
+				margin-top: 50px;
+			}
+			input[id="cleaner_button"]{
+				margin-top: 50px;
+			}
+			input[id="conditioner_button"]{
+				margin-top: 30px;
+			}
+			input[type="button"] {
+				position: relative;
+				margin-right: 75%;
+				border: none;	
+				background-color: transparent;
+				outline: none;
+				display: inline-block;
+				width: 72px;
+				height: 72px;
+			}
+			input[type="tech"] {
+				margin-left: 50px;
+				margin-top: 20px;
+				margin-bottom: 20px;
+				border: none;	
+				outline: none;
+				background-color: transparent;
+				display: inline-block;
+				vertical-align: top;	
+			}
+			.relay_on { 
+				background-image: url('on72.png');
+				background-position: 0px 0px;
+				width: 72px;
+				height: 72px;
+			}
+			.relay_off {
+				background-image: url('off72.png');
+				background-position: 0px 0px;
+				width: 72px;
+				height: 72px;
+			}
+			.washing_machine{
+				background-image: url('washing machine.png');
+				width: 98px;
+				height: 129px;
+				margin-right: 50px;
+			}
+			.microwave{
+				background-image: url('microwave.png');
+				width: 128px;
+				height: 80px;
+				margin-right: 50px;
+			}
+			.fridge{
+				background-image: url('fridge.png');
+				width: 84px;
+				height: 128px;
+				margin-right: 50px;
+			}
+			.cleaner{
+				background-image: url('cleaner.png');
+				width: 128px;
+				height: 128px;
+				margin-right: 50px;
+			}
+			.conditioner{
+				background-image: url('conditioner.png');
+				width: 128px;
+				height: 100px;
+				margin-right: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="tech" class="washing_machine"/>
+		<input type="button" id="washing_machine_button" class="relay_off" onclick="washing_machine_button_switch()">
+		<input type="tech" class="microwave"/>
+		<input type="button" id="microwave_button" class="relay_off" onclick="microwave_button_switch()">
+		<input type="tech" class="fridge"/>
+		<input type="button" id="fridge_button" class="relay_off" onclick="fridge_button_switch()">
+		<input type="tech" class="cleaner"/>
+		<input type="button" id="cleaner_button" class="relay_off" onclick="cleaner_button_switch()">
+		<input type="tech" class="conditioner"/>
+		<input type="button" id="conditioner_button" class="relay_off" onclick="conditioner_button_switch()">
+		
+		<!--Функция как будто бы переключающая кнопку-->
+		<script>
+			var washing_machine_button = document.getElementById("washing_machine_button");
+			var microwave_button = document.getElementById("microwave_button");
+			var fridge_button = document.getElementById("fridge_button");
+			var cleaner_button = document.getElementById("cleaner_button");
+			var conditioner_button = document.getElementById("conditioner_button");
+			var washing_machine_button_number = 0;
+			var microwave_button_number = 0;
+			var fridge_button_number = 0;
+			var cleaner_button_number = 0;
+			var conditioner_button_number = 0;
+			
+			function washing_machine_button_switch(){
+				if (washing_machine_button_number%2 == 1){
+					washing_machine_button.classList.remove('relay_on');
+					washing_machine_button.classList.add('relay_off');
+				}	
+				else{
+					washing_machine_button.classList.remove('relay_off');
+					washing_machine_button.classList.add('relay_on');
+				}
+				washing_machine_button_number++;
+			}
+			
+			function microwave_button_switch(){
+				if (microwave_button_number%2 == 1){
+					microwave_button.classList.remove('relay_on');
+					microwave_button.classList.add('relay_off');
+				}	
+				else{
+					microwave_button.classList.remove('relay_off');
+					microwave_button.classList.add('relay_on');
+				}
+				microwave_button_number++;
+			}
+			
+			function fridge_button_switch(){
+				if (fridge_button_number%2 == 1){
+					fridge_button.classList.remove('relay_on');
+					fridge_button.classList.add('relay_off');
+				}	
+				else{
+					fridge_button.classList.remove('relay_off');
+					fridge_button.classList.add('relay_on');
+				}
+				fridge_button_number++;
+			}
+			
+			function cleaner_button_switch(){
+				if (cleaner_button_number%2 == 1){
+					cleaner_button.classList.remove('relay_on');
+					cleaner_button.classList.add('relay_off');
+				}	
+				else{
+					cleaner_button.classList.remove('relay_off');
+					cleaner_button.classList.add('relay_on');
+				}
+				cleaner_button_number++;
+			}
+
+			function conditioner_button_switch(){
+				if (conditioner_button_number%2 == 1){
+					conditioner_button.classList.remove('relay_on');
+					conditioner_button.classList.add('relay_off');
+				}	
+				else{
+					conditioner_button.classList.remove('relay_off');
+					conditioner_button.classList.add('relay_on');
+				}
+				conditioner_button_number++;
+			}
+		</script>
+		
+		<!--Функция, отправляющая запросы на сервер
+		<script>
+			var relay = document.getElementById("relay_button");
+			var relay_status = 0;
+
+			function relay_state(){
+				var request = new XMLHttpRequest();
+				request.open('GET','/relay_status', true);
+				request.onload = function() {
+					if (request.readyState == 4 && request.status == 200) {
+						var response = request.responseText;
+						relay_status = Number.parseInt(response);
+						if (relay_status == 0)
+							relay.classList.add('relay_off');
+						else
+							relay.classList.add('relay_on');
+					}
+				}
+				request.send();
+			}
+
+			function relay_inverse() {
+				var request = new XMLHttpRequest();
+				request.open('GET', '/relay_switch', false);
+				request.send();
+				if (request.readyState == 4 && request.status == 200) {
+					var response = request.responseText;
+					if (response == '0') {
+						relay.classList.remove('relay_on');
+						relay.classList.add('relay_off ');
+						relay_status = 0;
+					}
+					else {
+						relay.classList.remove('relay_off');
+						relay.classList.add('relay_on ');
+						relay_status = 1;
+					}
+					
+				}
+			}
+			document.addEventListener('DOMConentLoaded', relay_state);
+			relay.addEventListener('click', relay_inverse);
+		</script>-->	
+	</body>
+</html>
